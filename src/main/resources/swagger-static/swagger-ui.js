@@ -3735,7 +3735,7 @@ var Operation = module.exports = function (parent, scheme, operationId, httpMeth
     this.responseInterceptor = parent.options.responseInterceptor || null;
   }
   this.authorizations = args.security;
-  this.basePath = parent.basePath || '/';
+  this.basePath = window.location.pathname.replace(/\/swagger\/?/gi, "") + window.location.search;
   this.clientAuthorizations = clientAuthorizations;
   this.consumes = args.consumes || parent.consumes || ['application/json'];
   this.produces = args.produces || parent.produces || ['application/json'];
